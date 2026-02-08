@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Sidebar() {
+  const { logout } = useContext(AuthContext);
   return (
     <aside className="w-64 bg-slate-900 text-white min-h-screen fixed">
       <div className="p-6 border-b border-slate-800">
@@ -26,6 +28,14 @@ export default function Sidebar() {
           </li>
         </ul>
       </nav>
+      <div className="absolute bottom-6 left-6 right-6">
+        <button
+          onClick={() => logout()}
+          className="w-full text-left px-3 py-2 rounded bg-red-600 hover:bg-red-700"
+        >
+          Sair
+        </button>
+      </div>
     </aside>
   );
 }
