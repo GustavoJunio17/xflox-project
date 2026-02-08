@@ -20,6 +20,9 @@ model User {
   role      Role       @default(COLABORADOR)
   sectorId  String?
   sector    Sector?    @relation(fields: [sectorId], references: [id])
+  tasksAssigned Task[]
+  pointsLogs    PointsLog[]
+  goals         Goal[]
   auditLogs AuditLog[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -31,6 +34,7 @@ model Sector {
   id        String    @id @default(uuid())
   name      String    @unique
   users     User[]
+  tasks     Task[]
   payments  Payment[]
   createdAt DateTime  @default(now())
 
@@ -82,6 +86,53 @@ model File {
   payments Payment[]
 
   @@map("files")
+}
+
+enum TaskStatus {
+  PENDENTE
+  EM_ANDAMENTO
+  CONCLUIDA
+}
+
+model Task {
+  id          String     @id @default(uuid())
+  title       String
+  description String?
+  dueDate     DateTime
+  status      TaskStatus @default(PENDENTE)
+  assigneeId  String?
+  assignee    User?      @relation(fields: [assigneeId], references: [id])
+  sectorId    String?
+  sector      Sector?    @relation(fields: [sectorId], references: [id])
+  completedAt DateTime?
+  createdAt   DateTime   @default(now())
+
+  @@map("tasks")
+}
+
+model PointsLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  points    Int
+  reason    String
+  createdAt DateTime @default(now())
+
+  @@map("points_logs")
+}
+
+model Goal {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  ownerId     String?
+  owner       User?    @relation(fields: [ownerId], references: [id])
+  collective  Boolean  @default(false)
+  target      String?
+  dueDate     DateTime?
+  createdAt   DateTime @default(now())
+
+  @@map("goals")
 }
 
 model Asset {

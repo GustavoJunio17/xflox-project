@@ -5,6 +5,9 @@ import { authRoutes } from './modules/auth/auth.routes';
 import { sectorsRoutes } from './modules/sectors/sectors.routes';
 import { paymentsRoutes } from './modules/payments/payments.routes';
 import { assetsRoutes } from './modules/assets/assets.routes';
+import { tasksRoutes } from './modules/tasks/tasks.routes';
+import { rankingRoutes } from './modules/ranking/ranking.routes';
+import { goalsRoutes } from './modules/goals/goals.routes';
 import authMiddleware from './shared/middlewares/auth.middleware';
 
 const app = express();
@@ -22,6 +25,9 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/sectors', sectorsRoutes);
 app.use('/api/v1/payments', paymentsRoutes);
 app.use('/api/v1/assets', assetsRoutes);
+app.use('/api/v1/tasks', tasksRoutes);
+app.use('/api/v1/ranking', rankingRoutes);
+app.use('/api/v1/goals', goalsRoutes);
 
 // Rota de Health Check (para saber se a API está viva)
 app.get('/health', (req, res) => {
