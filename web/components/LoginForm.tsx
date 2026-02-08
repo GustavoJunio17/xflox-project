@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
 export default function LoginForm() {
   const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('senha123');
@@ -14,7 +16,7 @@ export default function LoginForm() {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.post('/api/v1/auth/login', { email, password });
+      const res = await axios.post(`${API_URL}/api/v1/auth/login`, { email, password });
       if (res.data && res.data.token) {
         login(res.data.token);
       } else {

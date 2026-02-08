@@ -13,13 +13,15 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
   // Rotas públicas que não precisam de autenticação
   const publicPaths: Array<{ method?: string; path: string }> = [
     { path: '/health' },
-    { path: '/api/v1/auth/login' },
-    { path: '/api/v1/users', method: 'POST' },
+    { path: '/login', method: 'POST' }, // matches /api/v1/auth/login
+    { path: '/users', method: 'POST' }, // matches /api/v1/users
   ];
 
+  // Check if path starts with a public route (after the prefix)
+  const fullPath = req.path;
   const isPublic = publicPaths.some(p => {
     if (p.method && p.method !== req.method) return false;
-    return req.path === p.path || req.originalUrl.startsWith(p.path);
+    return fullPath === p.path || fullPath.endsWith(p.path);
   });
 
   if (isPublic) return next();

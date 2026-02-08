@@ -21,7 +21,17 @@ ChartJS.register(
   Legend
 );
 
-export default function CashflowChart({ data }) {
+interface CashflowData {
+  labels: string[];
+  inflows: number[];
+  outflows: number[];
+}
+
+interface CashflowChartProps {
+  data: CashflowData;
+}
+
+export default function CashflowChart({ data }: CashflowChartProps) {
   const chartData = {
     labels: data.labels,
     datasets: [

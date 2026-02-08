@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 // Ensure axios points to the backend API during development
+// Default to port 3001 to match the API server's default `config.port`.
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 import { useRouter } from 'next/router';
 
