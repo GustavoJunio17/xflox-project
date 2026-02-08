@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/modules/sectors/sectors.repository.ts</title>
+    <title>Code coverage report for src/modules/payments/payments.service.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/modules/sectors</a> sectors.repository.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/modules/payments</a> payments.service.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/15</span>
+                <span class='fraction'>4/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/15</span>
+                <span class='fraction'>4/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,25 +90,11 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,40 +117,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { PrismaClient, Sector } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { paymentsRepository } from './payments.repository';
 &nbsp;
-const rawConnection = process.env.DATABASE_URL || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
-const connectionString = rawConnection.replace(/^"(.*)"$/, '$1');
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
+export class PaymentsService {
+  private repo = paymentsRepository;
 &nbsp;
-const prisma = new PrismaClient({ adapter });
-&nbsp;
-export class SectorsRepository {
-<span class="fstat-no" title="function not covered" >  async </span>create(data: any): Promise&lt;Sector&gt; {
-<span class="cstat-no" title="statement not covered" >    return prisma.sector.create({ data });</span>
+<span class="fstat-no" title="function not covered" >  async </span>create(data: any) {
+<span class="cstat-no" title="statement not covered" >    return this.repo.create(data);</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>findAll() {
-<span class="cstat-no" title="statement not covered" >    return prisma.sector.findMany({ include: { users: true } });</span>
+<span class="fstat-no" title="function not covered" >  async </span>list(filters?: any) {
+<span class="cstat-no" title="statement not covered" >    return this.repo.findAll(filters);</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>findById(id: string) {
-<span class="cstat-no" title="statement not covered" >    return prisma.sector.findUnique({ where: { id } });</span>
+<span class="fstat-no" title="function not covered" >  async </span>get(id: string) {
+<span class="cstat-no" title="statement not covered" >    return this.repo.findById(id);</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  async </span>update(id: string, data: any) {
-<span class="cstat-no" title="statement not covered" >    return prisma.sector.update({ where: { id }, data });</span>
+<span class="cstat-no" title="statement not covered" >    return this.repo.update(id, data);</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>delete(id: string) {
-<span class="cstat-no" title="statement not covered" >    return prisma.sector.delete({ where: { id } });</span>
+<span class="fstat-no" title="function not covered" >  async </span>remove(id: string) {
+<span class="cstat-no" title="statement not covered" >    return this.repo.delete(id);</span>
   }
 }
 &nbsp;
-export const sectorsRepository = new SectorsRepository();
+export const paymentsService = new PaymentsService();
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

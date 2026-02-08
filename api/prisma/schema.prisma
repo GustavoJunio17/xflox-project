@@ -28,10 +28,11 @@ model User {
 }
 
 model Sector {
-  id        String   @id @default(uuid())
-  name      String   @unique
+  id        String    @id @default(uuid())
+  name      String    @unique
   users     User[]
-  createdAt DateTime @default(now())
+  payments  Payment[]
+  createdAt DateTime  @default(now())
 
   @@map("sectors")
 }
@@ -47,4 +48,52 @@ model AuditLog {
   createdAt  DateTime @default(now())
 
   @@map("audit_logs")
+}
+
+enum PaymentStatus {
+  PENDENTE
+  PAGO
+}
+
+model Payment {
+  id        String        @id @default(uuid())
+  amount    Float
+  dueDate   DateTime
+  category  String
+  status    PaymentStatus @default(PENDENTE)
+  sectorId  String?
+  sector    Sector?       @relation(fields: [sectorId], references: [id])
+  fileId    String?
+  file      File?         @relation(fields: [fileId], references: [id])
+  createdAt DateTime      @default(now())
+
+  @@map("payments")
+}
+
+model File {
+  id        String   @id @default(uuid())
+  filename  String
+  path      String
+  mimetype  String
+  size      Int
+  createdAt DateTime @default(now())
+
+  assets   Asset[]
+  payments Payment[]
+
+  @@map("files")
+}
+
+model Asset {
+  id           String    @id @default(uuid())
+  name         String
+  type         String
+  serialNumber String?
+  purchaseDate DateTime?
+  value        Float?
+  invoiceId    String?
+  invoice      File?     @relation(fields: [invoiceId], references: [id])
+  createdAt    DateTime  @default(now())
+
+  @@map("assets")
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/modules/users/users.controller.ts</title>
+    <title>Code coverage report for src/modules/payments/payments.repository.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/modules/users</a> users.controller.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/modules/payments</a> payments.repository.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">41.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/22</span>
+                <span class='fraction'>10/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">47.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/22</span>
+                <span class='fraction'>10/21</span>
             </div>
         
             
@@ -104,38 +104,24 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -145,48 +131,62 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from 'express';
-import { UsersService } from './users.service';
-import { auditService } from '../../shared/services/audit.service';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { PrismaClient, Payment } from '@prisma/client';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Pool } from 'pg';
 &nbsp;
-export class UsersController {
-  private service = new UsersService();
+const rawConnection = process.env.DATABASE_URL || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+const connectionString = rawConnection.replace(/^"(.*)"$/, '$1');
+const pool = new Pool({ connectionString });
+const adapter = new PrismaPg(pool);
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>create(req: Request, res: Response) {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const user = <span class="cstat-no" title="statement not covered" >await this.service.create(req.body);</span>
-<span class="cstat-no" title="statement not covered" >      return res.status(201).json(user);</span>
-    } catch (error: any) {
-<span class="cstat-no" title="statement not covered" >      return res.status(400).json({ error: error.message });</span>
-    }
+const prisma = new PrismaClient({ adapter });
+&nbsp;
+export class PaymentsRepository {
+<span class="fstat-no" title="function not covered" >  async </span>create(data: any): Promise&lt;Payment&gt; {
+<span class="cstat-no" title="statement not covered" >    return prisma.payment.create({ data });</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>list(req: Request, res: Response) {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const users = <span class="cstat-no" title="statement not covered" >await this.service.listAll();</span>
-<span class="cstat-no" title="statement not covered" >      return res.json(users);</span>
-    } catch (error: any) {
-<span class="cstat-no" title="statement not covered" >      return res.status(500).json({ error: error.message });</span>
+<span class="fstat-no" title="function not covered" >  async </span>findAll(filters?: any) {
+    const where: any = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (filters?.sectorId) <span class="cstat-no" title="statement not covered" >where.sectorId = filters.sectorId;</span></span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (filters?.from || filters?.to) {</span>
+<span class="cstat-no" title="statement not covered" >      where.dueDate = {} as any;</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (filters.from) <span class="cstat-no" title="statement not covered" >where.dueDate.gte = new Date(filters.from);</span></span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (filters.to) <span class="cstat-no" title="statement not covered" >where.dueDate.lte = new Date(filters.to);</span></span>
     }
+<span class="cstat-no" title="statement not covered" >    return prisma.payment.findMany({ where, include: { sector: true, file: true } });</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>changeRole(req: Request, res: Response) {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const requester = (<span class="cstat-no" title="statement not covered" >req as any).user;</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!requester || requester.role !== 'ADMIN') {</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(403).json({ error: 'Apenas Admin pode alterar roles' });</span>
-      }
-&nbsp;
-      const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
-      const { role } = <span class="cstat-no" title="statement not covered" >req.body;</span>
-      const updated = <span class="cstat-no" title="statement not covered" >await this.service.changeRole(id, role);</span>
-<span class="cstat-no" title="statement not covered" >      await auditService.log({ userId: requester.id, action: `Alterou role do usuário ${updated.email} para ${role}`, targetType: 'user', targetId: updated.id });</span>
-<span class="cstat-no" title="statement not covered" >      return res.json(updated);</span>
-    } catch (error: any) {
-<span class="cstat-no" title="statement not covered" >      return res.status(400).json({ error: error.message });</span>
-    }
+<span class="fstat-no" title="function not covered" >  async </span>findById(id: string) {
+<span class="cstat-no" title="statement not covered" >    return prisma.payment.findUnique({ where: { id }, include: { sector: true, file: true } });</span>
   }
-}</pre></td></tr></table></pre>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async </span>update(id: string, data: any) {
+<span class="cstat-no" title="statement not covered" >    return prisma.payment.update({ where: { id }, data });</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async </span>delete(id: string) {
+<span class="cstat-no" title="statement not covered" >    return prisma.payment.delete({ where: { id } });</span>
+  }
+}
+&nbsp;
+export const paymentsRepository = new PaymentsRepository();
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
