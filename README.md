@@ -1,11 +1,20 @@
-# Synaptix Core
+# Xflox Project
 
-Operational management platform.
+Operational management platform for company automation.
 
-## Tech Stack
-- Next.js
-- Node.js
-- PostgreSQL
+## Structure
+
+- **web/** → Next.js (frontend)
+- **api/** → Node.js (backend)
 
 ## Status
+
 🚧 MVP in development
+
+## How to run
+
+### Frontend
+```bash
+cd web
+npm install
+npm run dev
