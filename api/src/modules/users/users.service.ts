@@ -24,4 +24,8 @@ export class UsersService {
   async listAll() {
     return this.repository.findAll();
   }
+
+  async changeRole(userId: string, role: string) {
+    return this.repository.update(userId, { role });
+  }
 }

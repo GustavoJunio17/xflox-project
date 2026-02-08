@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { UsersService } from './users.service';
+import { auditService } from '../../shared/services/audit.service';
 
 export class UsersController {
   private service = new UsersService();
@@ -19,6 +20,23 @@ export class UsersController {
       return res.json(users);
     } catch (error: any) {
       return res.status(500).json({ error: error.message });
+    }
+  }
+
+  async changeRole(req: Request, res: Response) {
+    try {
+      const requester = (req as any).user;
+      if (!requester || requester.role !== 'ADMIN') {
+        return res.status(403).json({ error: 'Apenas Admin pode alterar roles' });
+      }
+
+      const { id } = req.params;
+      const { role } = req.body;
+      const updated = await this.service.changeRole(id, role);
+      await auditService.log({ userId: requester.id, action: `Alterou role do usuário ${updated.email} para ${role}`, targetType: 'user', targetId: updated.id });
+      return res.json(updated);
+    } catch (error: any) {
+      return res.status(400).json({ error: error.message });
     }
   }
 }
