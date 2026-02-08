@@ -1,23 +1,21 @@
-# Next.js Template
+# Web Dashboard for XFlow
 
-Template base para projetos Next.js com TypeScript, ESLint e Tailwind CSS.
+This folder holds a minimal Next.js dashboard implementation for the XFlow project.
 
-Quickstart
+Pages added:
+- `/admin/dashboard` — Administrative dashboard with cashflow chart and tasks summary.
+- `/colaborador/dashboard` — Collaborator dashboard with goals and ranking.
 
+API stubs:
+- `/api/admin/dashboard` — returns synthetic cashflow and task summary for UI development.
+
+Install and run:
 ```bash
-# instale dependências
+cd web
 npm install
-
-# desenvolvimento
 npm run dev
-
-# build
-npm run build
-npm start
 ```
 
-Recomendações
-
+Integrations:
+- Frontend fetches real data from backend endpoints under `/api/v1/*`. You may proxy or adapt the calls in the components to hit `http://localhost:3001` when running locally.
 - Rodar `npm install` para instalar dependências.
-- Ajustar versões no `package.json` conforme necessário.
-- Instalar plugins do editor (ESLint, Prettier, Tailwind).
