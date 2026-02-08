@@ -1,6 +1,7 @@
-import app from './app';
+import { app } from './app';
 import logger from './logger';
 import config from './config';
+import 'dotenv/config';
 
 const server = app.listen(config.port, () => {
   logger.info(`Server running on port ${config.port}`);

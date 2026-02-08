@@ -1,11 +1,19 @@
 import express from 'express';
-import healthRouter from './routes/health';
+import cors from 'cors';
+import { userRoutes } from './modules/users/users.routes';
 
 const app = express();
 
-app.use(express.json());
-app.use('/health', healthRouter);
+// Middlewares essenciais
+app.use(cors());
+app.use(express.json()); // Permite que a API receba JSON no corpo da requisição
 
-app.get('/', (req, res) => res.json({ ok: true, name: 'node-project-default' }));
+// Registro das Rotas do XFlow
+app.use('/api/v1/users', userRoutes);
 
-export default app;
+// Rota de Health Check (para saber se a API está viva)
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'XFlow API is running' });
+});
+
+export { app };
